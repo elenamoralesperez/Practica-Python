@@ -39,7 +39,7 @@ for n in range(-10, 0, 2):
 for n in range (150, 350):
     if n % 5 == 0 and n % 7 == 0:              # n % 5 == 0  o n % 7 == 0→ significa que el número n es divisible por 5 / 7
         print(n)                               #El operador % (módulo) devuelve el resto de una división.
-                                               #Si el resto es 0, significa que el número es divisible.
+#Si el resto es 0, significa que el número es divisible.
 
 
 
@@ -187,3 +187,114 @@ print(resultado)
 
 
 # EJERCICIO 13
+
+import math 
+def area_cuadrado(lado):                # Área de un cuadrado
+    area = lado * lado
+    return area
+
+
+def area_triangulo(base, altura):       # Área de un triángulo
+    area = (base * altura)/2
+    return area
+
+
+def area_circulo(radio):                # Área de un círculo
+    area = math.pi * (radio ** 2)
+    return area
+
+resultado_1 = (area_circulo(10)) * 2 + area_triangulo(3, 7)
+print(resultado_1)
+
+resultado_2 = area_cuadrado(10) + area_circulo(4) + (area_circulo(6) * 2) + (area_triangulo (2, 4)*5)
+print(resultado_2)
+
+
+
+
+# EJERCICIO 14
+
+def saludos(nombre, apellido, edad):
+    print(f"Hola me llamo {nombre} {apellido} y tengo {edad} años")
+
+saludos("Elena", "Morales", 23)
+
+
+
+
+# EJERCICIO 15
+
+
+def caractertisticas(nombre, edad, ciudad, profesion):
+    print(f"Nombre: {nombre}")                            # NOMBRE Y EDAD SON ARGUMENTOS POSICIONALES
+    print(f"Edad: {edad}")
+    print(f"Ciudad: {ciudad}")                            # CIUDAD Y PROFESION SOLO NO POSICIONALES
+    print(f"Profesion: {profesion}")
+
+caractertisticas("Elena", 23, ciudad="Yecla", profesion="Economista")
+
+
+
+
+# EJERCICIO 16
+
+def sumar_todos(*args):               # *args permite que la función reciba cualquier cantidad de argumentos posicionales
+    return sum(args)                  # suma todos los valores que se pasen a la función
+
+resultado = sumar_todos(1, 3, 5, 7)
+print(resultado) 
+
+
+
+
+# EJERCICIO 17
+
+def mostrar_info_socio(**kwargs):                                   # permite recibir cualquier cantidad de argumentos con nombre (clave=valor)
+    for clave, valor in kwargs.items():                             # devuelve pares (clave, valor) para poder recorrerlos
+        print(f"{clave} = {valor}")
+
+mostrar_info_socio(nombre="Roberto", ciudad="Valencia", edad=45, profesion="Socio Consultoria")
+
+
+
+
+# EJERCICIO 18
+
+multiplicar = lambda x: x * 2
+
+resultado = multiplicar(200)
+print(resultado)
+
+
+
+# EJERCICIO 19
+
+sumar = lambda x: x + 10
+
+resultado = sumar(200)
+print(resultado)
+
+
+
+
+# EJERCICIO 20
+
+texto = "Python es divertido"
+
+for i in range(len(frase)):                          # range(len(frase)) genera los índices desde 0 hasta el último carácter
+        caracter = frase[i]
+        print(f"Índice: {i}, Letra: {caracter}")
+        if caracter == " ":
+            print("¡Espacio encontrado!")
+
+
+# BONUS TRACK: Investiga la función ENUMERATE de Python, 
+# que permite recorrer un string y obtener a la vez el índice y el carácter de cada posición
+
+texto = "Python es divertido"
+
+for i, caracter in enumerate(texto):                # Te da índice y valor al mismo tiempo sin tener que usar range(len(...))
+    print(f"Indice: {i}, Letra: {caracter}")
+    if caracter == " ":
+        print("¡Espacio encontrado!")
+
